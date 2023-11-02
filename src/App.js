@@ -1,20 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieList from './MovieList';
-import Filter from './Filter';
 
 function App() {
  
   const h1Style = {
     color: "white", 
   };
-  return (
+  return ( 
 
     <div className="App" >
       <h1 style={h1Style}>Movies App</h1>
-    
-
       <div >
 
       <MovieList/>

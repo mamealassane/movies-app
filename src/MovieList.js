@@ -5,15 +5,13 @@ import {films} from './moviesObjet';
 const MovieList = () => {
     const [movieDB, setMovieDB] = useState(films)
     const flexContainerStyle = { 
-        display: "flex",
-        flexDirection: "row", 
-        justifyContent: "space-between", 
-        flexWrap: "wrap", 
+        marginTop:  '50px',
     };
     const h1Style = {
-        color: "white", 
+        color: "black", 
         position : "absolute",
         left : "40%",
+        marginTop : "20px"
     };
     const inputStyle = {
         fontSize: '14px', 
@@ -45,6 +43,7 @@ const MovieList = () => {
         // noteInputRef.current.value = null;
         
     };
+    
     // barre de recherche 
     const [search, setSearch] = useState('')
     const [note , setNote] = useState(0)
@@ -72,24 +71,29 @@ const MovieList = () => {
     return (
         <div>
             <div className="bar">
-            <form action="">
-            <input type="text" 
-                placeholder='Rechercher'
-                value={search}
-                onChange={onSearchChange}
-
+            <nav className="navbar navbar-dark bg-dark">
+        <div className="container">
+          <span className="navbar-brand"><strong>Movie-App</strong></span>
+          <form className="form-inline ml-auto">
+            <input
+              className="form-control mr-sm-2"
+              type="text"
+              placeholder="Rechercher"
+              value={search}
+              onChange={onSearchChange}
             />
-            <input type="number"  
-                placeholder='Note'
-                // value={note}
-                onChange={onNoteChange}
-                // defaultValue={note}
+            <input
+              className="form-control mr-sm-2"
+              type="number"
+              placeholder="Note"
+              onChange={onNoteChange}
             />
-        
-            </form>
+          </form>
+        </div>
+      </nav>
             </div>
 
-        <div style={flexContainerStyle}>
+        <div  style={flexContainerStyle} className="grid grid-cols-2 gap-4">
             
             {movieDB.map((film,index) => ( 
                 <MovieCard key={index} film={film} /> 
@@ -99,7 +103,7 @@ const MovieList = () => {
 
         
         <div className="formulaire" style={h1Style}>
-
+            <h2>Ajouter un film</h2>
     <form onSubmit={(e)=>sendHandler(e)}>
     <div className="form-outline mb-4">
             <label className="form-label" htmlFor="description" >Titre</label>
